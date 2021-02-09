@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Echec de commande - devstyle{% endblock %}
+
+{% block content %}
+    <h2>Echec de commade</h2>
+    {% if order %}
+    <p>
+        Bonjour <strong>{{ order.user.firstname}} {{ order.user.lastname }},</strong><br/><br/>
+        Votre commande n°<strong>{{ order.reference }} à échouée</strong><br/>
+        Une confirmation d' erreur vient de vous être envoyées par email a l'adresse <strong>{{ order.user.email }}</strong>
+        <hr>
+        <a href="{{ path('order') }}" class="btn btn-success">Réessayer le payement</a>
+    </p>
+    {% endif %}
+{% endblock %}
